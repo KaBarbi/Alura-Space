@@ -22,6 +22,11 @@
             <header class="cabecalho">
                 <img src="{% static '/assets/logo/Logo(2).png' %}"
                      alt="Logo da Alura Space" />
+                {% for message in messages %}
+                    <div class="alert alert-primary">
+                        <p id="messages">{{ message }}</p>
+                    </div>
+                {% endfor %}
                 <div class="cabecalho__busca">
                     <div class="busca__fundo">
                         <form action="{% url 'buscar' %}">
@@ -60,11 +65,13 @@
                         {% csrf_token %}
                         <div class="row">
                             {% for field in form.visible_fields %}
-                           <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-                                <label for="{{field.id_for_label}}" style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
-                                {{field}}
-                           </div>
-                           {% endfor %}
+                                <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
+                                    <label for="{{ field.id_for_label }}"
+                                           style="color:#D9D9D9;
+                                                  margin-bottom: 5px">{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                            {% endfor %}
                         </div>
                         <div class="col-12 text-center">
                             <button type="submit" class="btn btn-success col-12" style="padding: top 5px">Cadastrar</button>

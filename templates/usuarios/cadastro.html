@@ -22,11 +22,7 @@
             <header class="cabecalho">
                 <img src="{% static '/assets/logo/Logo(2).png' %}"
                      alt="Logo da Alura Space" />
-                {% for message in messages %}
-                    <div class="alert alert-primary">
-                        <p id="messages">{{ message }}</p>
-                    </div>
-                {% endfor %}
+                {% include 'galeria/partials/_alertas.html' %}
                 <div class="cabecalho__busca">
                     <div class="busca__fundo">
                         <form action="{% url 'buscar' %}">
@@ -71,11 +67,7 @@
                                                   margin-bottom: 5px">{{ field.label }}</label>
                                     {{ field }}
                                 </div>
-                                {% for error in field.errors %}
-                                <div class="alert alert-danger">
-                                    {{error}}
-                                </div>
-                                {% endfor %}
+                                {% for error in field.errors %}<div class="alert alert-danger">{{ error }}</div>{% endfor %}
                             {% endfor %}
                         </div>
                         <div class="col-12 text-center">

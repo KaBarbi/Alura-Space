@@ -72,7 +72,7 @@ class CadastroForms(forms.Form):
         )
     )
 
-    def clea_nome_cadastro(self):
+    def clean_nome_cadastro(self):
         nome = self.cleaned_data.get("nome_cadastro")
 
         if nome:

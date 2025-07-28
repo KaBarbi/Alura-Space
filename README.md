@@ -20,8 +20,4 @@ Este projeto foi desenvolvido como parte da formação **"Django: Crie Aplicaç�
 - SQLite 
 - HTML5 e CSS3 
 
-## 📦 Acesse no navegador:
-
-```bash
-
-http://127.0.0.1:8000/
+---
